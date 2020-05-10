@@ -1,0 +1,3 @@
+pypiwin32==223
+pywin32==227
+win10toast==0.9
