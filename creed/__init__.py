@@ -3,7 +3,10 @@
 import os
 import platform
 
-__all__ = ['Notification', 'NotificationError']
+
+__author__ = 'Chromazmoves'
+__license__ = 'MIT'
+__all__ = ['Notif', 'NotificationError']
 
 #env\Scripts\activate
 
@@ -14,48 +17,50 @@ class NotificationError(Exception):
 
 class Notif:
     """
-        Makes toast for every major os Windows, Mac & linux
+        Makes toast for every major os Windows, Mac & linux.  
 
-        >Send toast on Windows https://stackoverflow.com/questions/17651017/python-post-osx-notification
-        >Send toast on linux https://github.com/YuriyLisovskiy/pynotifier
-        >Send toast on MacOS https://stackoverflow.com/questions/17651017/python-post-osx-notification
         
-        ✔️ = Working
-        ❌ = Not Working
-        ❔ = I Dont Know
+        ✔️ = Working       Windows 10 = ✔️   MacOS Catalina = 🤷    Ubuntu = 🤷  
 
-        Windows 10 = ✔️  MacOS Catalina = ❔     Ubuntu = ❔
-        Windows 8.1 = ❔  MacOS Mojave = ✔️      Debian = ❔
-        Windows 7 = ❔    MacOS High Sierra = ❔  CentOS = ❔
 
-        || Send Testing for new OS or OS version to the issuse tab plz
+        ❌ = Not Working   Windows 8.1 = ❔   MacOS Mojave = ✔️      Debian = 🤷  
 
-        Parameters
-            ----------
-            title : str
-                title that the toast should display
-            message : str
-                message that the toast should display
-            duration : str , (optional)
-                the amount in seconds that toast show be visible
-                defaults to 10 seconds  
-            urgency : str , (optional) (linux)
-                defaults to low
-            icon-path : str, (optional) (linux, windows)
-                the icon to show on the toast
-                image must be 
-                    .ico for windows
-                    .png for linux
 
-        Returns
-            ----------
-            True : Boolean (Implementation Soon)
-                returns 'True' if an error occured
-            False : Boolean (Implementation Soon)
-                returns 'False' if an error has not occured
+        🤷 = I Dont Know   Windows 7 = 🤷    MacOS High Sierra = 🤷 CentOS = 🤷  
+ 
 
-        """
+        >Send Testing for new OS or OS version to PR or Issues Tab  
+
+
+        `Attributes:`
+
+
+        >title : str, title that the toast should display 
+
+
+        >message : str, message that the toast should display
+
+
+        >duration : str , (optional), the amount in seconds that toast show be visible, defaults to 10 seconds  
+
+
+        >urgency : str , (optional) (linux), defaults to low  
+
+
+        >icon_path : str, (optional) (linux, windows) the icon to show on the toast .ico for windows .png for linux  
+
+        `Source/Sause`
+
+        >Send toast on Windows https://github.com/jithurjacob/Windows-10-Toast-Notifications
+
+
+        >Send toast on linux https://github.com/YuriyLisovskiy/pynotifier   
+
+
+        >Send toast on MacOS https://stackoverflow.com/questions/17651017/python-post-osx-notification  
+    """
     def __init__(self, title, message, duration=10, urgency="low", icon_path="python.ico"):
+        """Inits SampleClass with title, message, duration, urgency, icon_path"""
         self.title = title
         self.message = message
         self.duration = duration
@@ -69,6 +74,43 @@ class Notif:
         return f"{self.message}"
 
     def Toast(self) -> bool:
+        """
+        `Args:`
+
+
+        >title: str, title that the toast should display 
+
+
+        >message: str, message that the toast should display
+
+
+        >duration: str , (optional), the amount in seconds that toast show be visible, defaults to 10 seconds  
+
+
+        >urgency: str , (optional) (linux), defaults to low
+
+
+        >icon-path: str, (optional) (linux, windows) the icon to show on the toast .ico for windows .png for linux
+
+
+        `Returns:`
+
+
+        >boolean value the indicates the result of the toast
+
+
+        >True: if all operations happened smoothly
+
+
+        >False: if an error happened
+            
+
+        `Raises:`
+
+
+        >NotificationError: An error occurred displaying toast
+                
+        """
         try:
             if platform.system().lower().startswith('win'): 
                 """

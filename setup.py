@@ -1,5 +1,3 @@
-
-
 try: 
     # for pip >= 10
     from pip._internal.req import parse_requirements
@@ -17,20 +15,21 @@ def read(fname):
 def from_here(relative_path):
     return path.join(path.dirname(__file__), relative_path)
 
-with open("README.md", "r") as fh:
-    long_description = fh.read()
 
 # python -m twine upload dist/*
 
+# env\Scripts\activate
 # python setup.py sdist bdist_wheel
 # python -m twine upload --skip-existing dist/*
 
+# env\Scripts\activate && python setup.py sdist bdist_wheel && python -m twine upload --skip-existing dist/*
+# python setup.py sdist bdist_wheel && python -m twine upload --skip-existing dist/*
+
 setup(
     name="creed",
-    version="0.2.2",
+    version="0.2.3",
     install_requires=[
         "pypiwin32==223",
-        "pywin32==227",
         "win10toast==0.9"
     ],
     author="Yusuf Ahmed",
