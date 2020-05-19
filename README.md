@@ -9,11 +9,15 @@
   </a>
 </p>
 <p align="center">
-    The one and only cross-platform Toaster/Notification in python.
+    The one and only cross-platform Toaster/Notification in python.<br>
 </p>
 
 ```
 from creed import Notif
 
+#Using Subprocess.Call()
 Notif(title="Python", message="Hello, World", duration=20).Toast()
+
+#Using a Native Interface Bridge
+## Coming Soon
 ```
