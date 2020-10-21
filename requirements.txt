@@ -1,0 +1,3 @@
+pycparser==2.20
+pythonnet==2.5.1
+winrt==1.0.19128.1
