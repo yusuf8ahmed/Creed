@@ -17,7 +17,6 @@ if platform.system().lower().startswith('win'):
 else:
     raise PlaformIsntWindows
 
-
 class XlangNotification:
     def __init__(self, appname="Python Notification", group="Group-1", tag="Group-2"):
         if get_windows_version()[0] != 10:
