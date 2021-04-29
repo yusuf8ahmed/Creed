@@ -144,7 +144,7 @@ class Notif:
                 try:
                     import subprocess
                     if self.urgency not in [URGENCY_LOW, URGENCY_NORMAL, URGENCY_CRITICAL]:
-                        print('Cookie: invalid urgency was given: {}').format(self.urgency)
+                        print('Cookie: invalid urgency was given: {}'.format(self.urgency))
                         urgency = "low"
 
                     command = [
